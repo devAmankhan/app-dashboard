@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query_Results</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      h1 {
+        color: blue;
+      }
+      .heading {
+        margin: 0 auto;
+        width: 50%;
+      }
+      table {
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+        width: 300px;
+        text-align: center;
+      }
+
+      .heading button {
+        margin-left: 40%;
+        margin-top: 5px;
+        color: black;
+      }
+
+      button:hover {
+        background-color: rgb(48, 28, 28);
+        color: white;
+      }
+
+      td:hover {
+        background-color: grey;
+        font-size: large;
+      }
+
+      th:hover {
+        background-color: grey;
+        font-size: large;
+      }
+      body {
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heading">
+      <h1>Latest Timestamp and forecast_method</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Forecast Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for result in results %}
+          <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <button onclick="refresh()">Refresh</button>
+    </div>
+    <script>
+      function refresh() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
